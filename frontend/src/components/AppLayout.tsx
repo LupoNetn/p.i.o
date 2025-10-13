@@ -6,11 +6,11 @@ import Footer from "./Footer";
 const AppLayout = () => {
   return (
     <>
-      <div>
-        <div>
+      <div className="relative">
+        <div className="fixed top-0 w-full z-100">
           <Navbar />
         </div>
-        <main>
+        <main className="pt-10 px">
           <Outlet />
         </main>
         <div>
