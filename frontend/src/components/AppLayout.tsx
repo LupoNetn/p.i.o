@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "./Navbar";
 import { Outlet } from "react-router";
 import Footer from "./Footer";
@@ -10,7 +9,7 @@ const AppLayout = () => {
         <div className="fixed top-0 w-full z-100">
           <Navbar />
         </div>
-        <main className="pt-10 px">
+        <main className="">
           <Outlet />
         </main>
         <div>

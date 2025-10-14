@@ -1,71 +1,103 @@
-import React from "react";
+import { PlayCircleIcon } from "lucide-react";
+import { Card, CardContent } from "../ui/card";
 
-const projects = [
+const demoProjects = [
   {
-    title: "Hit Track 1",
-    description: "A fire Afrobeat track that topped the charts.",
-    image: "/images/project1.jpg",
+    name: "Subtle Beatz",
+    artist: "Zammy",
+    genre: "Afro Trap",
+    cover: "/images/subtle-beatz.jpg",
+    audioUrl: "/audio/subtle-beatz.mp3",
   },
   {
-    title: "Hit Track 2",
-    description: "Smooth RnB vibes crafted with precision.",
-    image: "/images/project2.jpg",
+    name: "Chilly Beatz",
+    artist: "X-Dilly",
+    genre: "Drill",
+    cover: "/images/chilly-beatz.jpg",
+    audioUrl: "/audio/chilly-beatz.mp3",
   },
   {
-    title: "Hit Track 3",
-    description: "Trap anthem with hard-hitting basslines.",
-    image: "/images/project3.jpg",
+    name: "Brazzyy Beatz",
+    artist: "Leodaiii",
+    genre: "Amapiano",
+    cover: "/images/brazzyy-beatz.jpg",
+    audioUrl: "/audio/brazzyy-beatz.mp3",
   },
   {
-    title: "Hit Track 4",
-    description: "Experimental beat with unique sound textures.",
-    image: "/images/project4.jpg",
+    name: "Funkyyy Beatz",
+    artist: "Xion",
+    genre: "Hip-Hop",
+    cover: "/images/funkyyy-beatz.jpg",
+    audioUrl: "/audio/funkyyy-beatz.mp3",
   },
 ];
 
 const ProjectsSection = () => {
   return (
-    <section className="text-text-primary app-container">
-      {/* Section Header */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-          My Projects
-        </h2>
-        <p className="text-text-muted font-body text-base md:text-lg">
-          A showcase of beats, mixes, and collaborations crafted with passion and precision.
+    <section className="font-audio app-container py-16">
+      {/* Header */}
+      <div className="text-left">
+        <h2 className="text-4xl font-bold mb-2">Projects</h2>
+        <p className="text-gray-300">
+          Some of my baddest productions.
         </p>
       </div>
 
-      {/* Projects Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 gap-8">
-        {projects.map((project, index) => (
+      {/* Project Grid */}
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 mt-12">
+        {/* Center vertical line for desktop */}
+        <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-white/30 transform -translate-x-1/2">
+          {/* Dots for desktop line */}
+          <div className="absolute left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-white rounded-full top-[30%]" />
+          <div className="absolute left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-white rounded-full bottom-[30%]" />
+        </div>
+
+        {demoProjects.map((project, index) => (
           <div
             key={index}
-            className="bg-background rounded-2xl overflow-hidden border border-color-border shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-300"
+            className="relative group flex items-stretch md:items-center"
           >
-            {/* Image */}
-            <div className="w-full h-48 md:h-56 overflow-hidden">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <Card
+              className="flex-1 bg-black/40 border border-white/10 backdrop-blur-sm
+                         hover:scale-[1.02] transition-all duration-300 rounded-2xl overflow-hidden"
+            >
+              <CardContent className="p-4 sm:p-5 flex flex-col justify-between h-full">
+                <img
+                  src={project.cover}
+                  alt={project.name}
+                  className="rounded-lg mb-3 w-full h-36 object-cover"
+                />
+                <div>
+                  <h3 className="text-lg sm:text-xl font-semibold text-white capitalize">
+                    {project.name}
+                  </h3>
+                  <p className="text-gray-400 mt-1 text-sm sm:text-base">
+                    {project.artist} • {project.genre}
+                  </p>
+                </div>
 
-            {/* Content */}
-            <div className="p-6 flex flex-col items-start gap-3">
-              <h3 className="text-xl md:text-2xl font-heading font-semibold">
-                {project.title}
-              </h3>
-              <p className="text-text-muted font-body text-sm md:text-base">
-                {project.description}
-              </p>
-              <button className="mt-2 px-4 py-2 bg-color-accent text-color-text-primary rounded-lg font-semibold hover:bg-color-highlight transition-colors duration-300">
-                Listen Now
-              </button>
-            </div>
+                <div className="flex items-center justify-between mt-3">
+                  <audio controls className="w-[80%] rounded-md">
+                    <source src={project.audioUrl} type="audio/mpeg" />
+                    Your browser does not support the audio tag.
+                  </audio>
+                  <PlayCircleIcon
+                    size={34}
+                    className="text-white hover:text-purple-400 transition-colors cursor-pointer"
+                  />
+                </div>
+              </CardContent>
+            </Card>
           </div>
         ))}
+
+        {/* Line on right for mobile */}
+        <div className="absolute right-[-12px] top-0 bottom-0 w-[2px] bg-white/20 md:hidden">
+          {/* Dots for mobile line */}
+          <div className="absolute left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-white rounded-full top-[20%]" />
+          <div className="absolute left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-white rounded-full top-[50%]" />
+          <div className="absolute left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-white rounded-full bottom-[20%]" />
+        </div>
       </div>
     </section>
   );

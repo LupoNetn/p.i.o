@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "../ui/button";
 import { motion } from "framer-motion";
 import { InstagramIcon, FacebookIcon, TwitterIcon } from "lucide-react";

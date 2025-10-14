@@ -1,4 +1,3 @@
-import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import AppLayout from "./components/AppLayout";
 import HomePage from "./pages/HomePage";

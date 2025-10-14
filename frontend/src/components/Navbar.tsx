@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NAV_ITEMS } from "../constants/constants";
 import { LogIn, Menu, X } from "lucide-react";
 import { Link } from "react-router";
@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "./ui/dropdown-menu";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -19,66 +19,69 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-surface app-container w-full shadow-2xl rounded-md backdrop-blur-2xl">
-      <div className="flex justify-between items-center">
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] md:w-[85%] z-50">
+      <div
+        className="flex justify-between items-center px-6 py-4 
+                   bg-black/40 border border-white/10 rounded-2xl 
+                   backdrop-blur-xl shadow-lg shadow-black/20"
+      >
         {/* Logo */}
-        <h1 className="text-text-primary font-bold font-heading text-lg md:text-xl">
-          P.I.O
+        <h1 className="text-white font-bold font-heading text-2xl tracking-wide">
+          P.I.O<span className="text-purple-400">.</span>
         </h1>
 
         {/* Desktop Navigation */}
-        <div className="hidden sm:block">
-          <ul className="flex items-center gap-3 lg:gap-5 text-text-muted font-semibold">
+        <div className="hidden sm:flex items-center gap-8">
+          <ul className="flex items-center gap-6 text-gray-300 font-medium">
             {NAV_ITEMS.map((item) => (
               <li key={item.path}>
                 <Link
                   to={item.path}
-                  className="hover:text-highlight transition-colors duration-200"
+                  className="hover:text-white transition-colors duration-200"
                 >
                   {item.text}
                 </Link>
               </li>
             ))}
-            <li>
-              <Button
-                onClick={handleLogin}
-                className="flex items-center gap-2 px-6 py-2 text-base font-semibold 
-                bg-color-accent text-color-text-primary 
-                hover:bg-color-highlight hover:text-surface
-                transition cursor-pointer"
-              >
-                <LogIn size={20} />
-                Login
-              </Button>
-            </li>
           </ul>
+
+          <Button
+            onClick={handleLogin}
+            className="flex items-center gap-2 px-6 py-2 rounded-full 
+                       bg-purple-600 text-white font-semibold 
+                       hover:bg-purple-500 transition-all duration-200 shadow-md"
+          >
+            <LogIn size={18} />
+            Login
+          </Button>
         </div>
 
         {/* Mobile Navigation */}
         <div className="block sm:hidden">
           <DropdownMenu open={open} onOpenChange={setOpen}>
-            <DropdownMenuTrigger className="p-2 rounded-md text-text-primary border border-border hover:bg-surface transition">
+            <DropdownMenuTrigger className="p-2 rounded-md text-white border border-white/20 hover:bg-white/10 transition">
               {open ? <X size={24} /> : <Menu size={24} />}
             </DropdownMenuTrigger>
 
             <DropdownMenuContent
               align="end"
-              className="bg-surface border border-border shadow-lg sm:hidden"
+              className="bg-black/70 border border-white/10 backdrop-blur-xl 
+                         shadow-lg shadow-black/30 rounded-2xl mt-2 w-48"
             >
               {NAV_ITEMS.map((item) => (
                 <DropdownMenuItem key={item.path} asChild>
                   <Link
                     to={item.path}
-                    className="text-text-muted hover:text-highlight font-body"
+                    className="text-gray-300 hover:text-white w-full py-2 font-medium"
                   >
                     {item.text}
                   </Link>
                 </DropdownMenuItem>
               ))}
-              <DropdownMenuSeparator />
+              <DropdownMenuSeparator className="bg-white/10" />
               <DropdownMenuItem
                 onSelect={handleLogin}
-                className="flex items-center gap-2 text-text-primary hover:text-highlight cursor-pointer"
+                className="flex items-center gap-2 text-white hover:text-purple-400 cursor-pointer py-2"
               >
                 <LogIn size={18} />
                 Login
