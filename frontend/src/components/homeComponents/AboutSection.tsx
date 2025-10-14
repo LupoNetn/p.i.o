@@ -12,7 +12,7 @@ const AboutSection = () => {
 
       {/* Content */}
       <div className="relative app-container flex flex-col lg:flex-row items-center justify-between gap-16">
-        {/* Left - Image */}
+        {/* Left - Intersecting Images */}
         <motion.div
           initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -20,16 +20,28 @@ const AboutSection = () => {
           viewport={{ once: true }}
           className="relative w-full lg:w-1/2 flex justify-center"
         >
-          <div className="relative group">
-            <img
-              src="/images/producer-portrait.jpg"
-              alt="Producer portrait"
-              className="rounded-2xl w-[320px] sm:w-[400px] md:w-[450px] 
-                         border border-white/10 object-cover shadow-[0_0_60px_rgba(255,255,255,0.05)] 
-                         group-hover:scale-[1.03] transition-all duration-500"
+          <div className="relative w-[280px] sm:w-[420px] md:w-[480px] h-[380px]">
+            {/* Second image */}
+            <motion.img
+              src="/pio-img2.jpg"
+              alt="Producer portrait close-up"
+              className="absolute bottom-0 right-0 w-[80%] h-[80%] object-cover rounded-2xl 
+                         border border-white/10 shadow-[0_0_80px_rgba(255,255,255,0.15)]
+                         rotate-[5deg] translate-x-[30px] translate-y-[-20px]
+                         transition-all duration-700 hover:rotate-[3deg] hover:scale-[1.03]"
             />
-            {/* glowing ring */}
-            <div className="absolute -inset-2 bg-gradient-to-r from-color-accent/50 to-color-highlight/30 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition-all duration-500" />
+            {/* First image (foreground) */}
+            <motion.img
+              src="/pio-img1.jpg"
+              alt="Producer working in studio"
+              className="absolute top-0 left-0 w-[90%] h-[80%] object-cover rounded-2xl 
+                         border border-white/10 shadow-[0_0_60px_rgba(255,255,255,0.1)]
+                         rotate-[-4deg] translate-x-[-30px] translate-y-[30px]
+                         transition-all duration-700 hover:rotate-[-2deg] hover:scale-[1.02]"
+            />
+
+            {/* Glow ring */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-color-accent/30 to-color-highlight/20 blur-3xl opacity-40 rounded-3xl" />
           </div>
         </motion.div>
 
@@ -46,16 +58,17 @@ const AboutSection = () => {
             About Me
           </h2>
 
-          <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
-            I’m <span className="text-color-accent font-semibold">P.I.O</span> — a passionate music producer 
-            who lives for rhythm, soul, and storytelling through sound.  
-            I turn raw ideas into timeless beats, blending energy and emotion in every project.
+          <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+            I’m <span className="text-color-accent font-semibold">P.I.O</span><span> official</span> —
+            a producer obsessed with creating sounds that move people. Each beat
+            tells a story — raw, emotional, and unforgettable.
           </p>
 
-          <p className="text-gray-500 text-sm sm:text-base leading-relaxed mb-8">
-            From late-night sessions to sunrise inspiration, my sound travels across genres — 
-            from the heart of <span className="text-color-highlight font-semibold">AfroTrap</span> to the edge of <span className="text-color-highlight font-semibold">Drill</span> and beyond.  
-            Each production is a journey — one that connects creativity, mood, and pure vibe.
+          <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-8">
+            My craft blends <span className="text-color-highlight">AfroTrap</span>,{" "}
+            <span className="text-color-highlight">Drill</span>, and soulful
+            energy — mixing heart with rhythm to build timeless soundscapes that
+            inspire every listener.
           </p>
 
           <div className="flex items-center gap-6">

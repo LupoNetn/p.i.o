@@ -27,7 +27,7 @@ const Navbar = () => {
       >
         {/* Logo */}
         <h1 className="text-white font-bold font-heading text-2xl tracking-wide">
-          P.I.O<span className="text-purple-400">.</span>
+          P.I.O<span className="text-purple-400 text-sm"> official</span>
         </h1>
 
         {/* Desktop Navigation */}
