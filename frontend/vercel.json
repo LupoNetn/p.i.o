@@ -1,44 +1,9 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "next.config.js",
-      "use": "@vercel/next"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
-  ],
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "headers": [
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
     {
       "source": "/(.*)",
-      "headers": [
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=()" }
-      ]
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/home",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/instagram",
-      "destination": "https://instagram.com/yourprofile",
-      "permanent": false
+      "destination": "/index.html"
     }
   ]
 }
