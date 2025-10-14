@@ -1,8 +1,8 @@
+import AboutSection from '../components/homeComponents/AboutSection'
+import Cta from '../components/homeComponents/Cta'
 import HeroSection from '../components/homeComponents/HeroSection'
 import ProjectsSection from '../components/homeComponents/ProjectsSection'
-// import AboutSection from '../components/homeComponents/AboutSection'
-// import ServicesSection from '../components/homeComponents/ServicesSection'
-
+import ServicesSection from '../components/homeComponents/ServicesSection'
 
 const HomePage = () => {
   return (
@@ -13,6 +13,15 @@ const HomePage = () => {
        </div>
       <div>
         <ProjectsSection />
+      </div>
+      <div>
+        <ServicesSection />
+      </div>
+      <div>
+        <AboutSection />
+      </div>
+      <div>
+        <Cta />
       </div>
     </div>
     </>

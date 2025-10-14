@@ -1,75 +1,93 @@
-import React from "react";
-import { Music, Sliders, AudioLines, Mic2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { Music2, SlidersHorizontal, Waves, Mic2 } from "lucide-react";
 
 const services = [
   {
-    icon: <Music size={32} />,
-    title: "Beat Production",
-    description:
-      "Custom instrumentals tailored to your sound — from Afrobeat to Trap. Every beat hits with emotion, rhythm, and fire.",
+    id: 1,
+    icon: <Music2 size={38} />,
+    title: "Music Production",
+    desc: "Full-scale beat creation tailored to your style — trap, afrobeats, drill, or soul.",
   },
   {
-    icon: <Sliders size={32} />,
+    id: 2,
+    icon: <SlidersHorizontal size={38} />,
     title: "Mixing & Mastering",
-    description:
-      "Get industry-grade clarity and balance that make your tracks shine across all streaming platforms.",
+    desc: "Crisp, balanced, and professional sound engineering that makes your tracks radio-ready.",
   },
   {
-    icon: <AudioLines size={32} />,
-    title: "Sound Design & Arrangement",
-    description:
-      "Unique melodies, textures, and transitions that elevate your song’s emotion and energy.",
+    id: 3,
+    icon: <Waves size={38} />,
+    title: "Sound Design",
+    desc: "Crafting unique sound textures that define your signature sonic identity.",
   },
   {
-    icon: <Mic2 size={32} />,
-    title: "Artist Development",
-    description:
-      "Personal sessions that help you refine your tone, delivery, and creative direction for every project.",
+    id: 4,
+    icon: <Mic2 size={38} />,
+    title: "Recording Sessions",
+    desc: "Studio-grade vocal recording sessions to bring your ideas to life with perfection.",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section className="text-text-primary text-center mb-12">
-      <div className="max-w-6xl mb-12 app-container mx-auto">
-        <h2 className="text-2xl md:text-4xl font-heading font-bold mb-4">
-          What I Bring to Your Sound
-        </h2>
-        <p className="text-text-muted font-body text-base md:text-lg">
-          Every artist deserves a sound that speaks louder than words.
-        </p>
-      </div>
+    <section className="relative py-24 overflow-hidden font-audio">
+      {/* background accent */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black/95" />
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_60%)]" />
 
-      {/* Horizontal Scroll Container */}
-      <div className="overflow-hidden relative">
+      {/* content */}
+      <div className="relative app-container text-left">
+        {/* heading */}
         <motion.div
-          className="flex gap-8"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 10,
-            ease: "linear",
-          }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
         >
-          {/* Duplicate items for seamless loop */}
-          {[...services, ...services].map((service, index) => (
-            <div
-              key={index}
-              className="min-w-[250px] md:min-w-[300px] bg-background border border-color-border rounded-2xl p-6 flex flex-col  space-y-4 hover:shadow-[0_0_20px_rgba(138,43,226,0.6)] transition-shadow duration-300"
+          <h2 className="text-4xl sm:text-5xl font-bold text-text-primary mb-3 relative inline-block">
+            Services
+            <span className="absolute left-0 -bottom-2 w-16 h-[3px] bg-gradient-to-r from-color-accent to-color-highlight rounded-full animate-pulse" />
+          </h2>
+          <p className="text-gray-400 text-sm sm:text-base">
+            What I have to offer to your sound!
+          </p>
+        </motion.div>
+
+        {/* service cards */}
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.15,
+                ease: "easeOut",
+              }}
+              viewport={{ once: true }}
+              className="group relative p-8 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-md 
+              hover:bg-white/10 hover:border-color-accent/60 transition-all duration-300 shadow-[0_0_25px_rgba(255,255,255,0.08)]"
             >
-              <div className="text-color-accent">{service.icon}</div>
-              <h3 className="font-heading text-lg md:text-xl font-semibold">
+              <div className="text-color-accent mb-4 group-hover:scale-110 transition-transform duration-300">
+                {service.icon}
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">
                 {service.title}
               </h3>
-              <p className="text-text-muted text-sm md:text-base font-body leading-relaxed">
-                {service.description}
+              <p className="text-gray-400 text-sm leading-relaxed">
+                {service.desc}
               </p>
-            </div>
+
+              {/* glowing underline on hover */}
+              <div className="absolute bottom-0 left-0 w-0 h-[3px] bg-gradient-to-r from-color-accent to-color-highlight rounded-full group-hover:w-full transition-all duration-500" />
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
+
+      {/* background glow circle */}
+      <div className="absolute bottom-0 right-0 w-[250px] h-[250px] bg-color-accent/10 blur-3xl rounded-full animate-pulse" />
     </section>
   );
 };

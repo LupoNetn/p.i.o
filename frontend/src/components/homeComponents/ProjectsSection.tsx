@@ -34,7 +34,7 @@ const demoProjects = [
 
 const ProjectsSection = () => {
   return (
-    <section className="font-audio app-container py-16">
+    <section className="font-audio app-container">
       {/* Header */}
       <div className="text-left">
         <h2 className="text-4xl font-bold mb-2">Projects</h2>
