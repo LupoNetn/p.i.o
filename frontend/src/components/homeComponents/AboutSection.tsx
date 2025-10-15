@@ -21,23 +21,24 @@ const AboutSection = () => {
           className="relative w-full lg:w-1/2 flex justify-center"
         >
           <div className="relative w-[280px] sm:w-[420px] md:w-[480px] h-[380px]">
-            {/* Second image */}
-            <motion.img
-              src="/pio-img2.jpg"
-              alt="Producer portrait close-up"
-              className="absolute bottom-0 right-0 w-[80%] h-[80%] object-cover rounded-2xl 
-                         border border-white/10 shadow-[0_0_80px_rgba(255,255,255,0.15)]
-                         rotate-[5deg] translate-x-[30px] translate-y-[-20px]
-                         transition-all duration-700 hover:rotate-[3deg] hover:scale-[1.03]"
-            />
             {/* First image (foreground) */}
             <motion.img
-              src="/pio-img1.jpg"
+              src="/pio-img3.jpg"
               alt="Producer working in studio"
               className="absolute top-0 left-0 w-[90%] h-[80%] object-cover rounded-2xl 
                          border border-white/10 shadow-[0_0_60px_rgba(255,255,255,0.1)]
                          rotate-[-4deg] translate-x-[-30px] translate-y-[30px]
                          transition-all duration-700 hover:rotate-[-2deg] hover:scale-[1.02]"
+            />
+
+            {/* Second image */}
+            <motion.img
+              src="/pio-img1.jpg"
+              alt="Producer portrait close-up"
+              className="absolute bottom-0 right-0 w-[80%] h-[80%] object-cover rounded-2xl 
+                         border border-white/10 shadow-[0_0_80px_rgba(255,255,255,0.15)]
+                         rotate-[5deg] translate-x-[30px] translate-y-[-20px]
+                         transition-all duration-700 hover:rotate-[3deg] hover:scale-[1.03]"
             />
 
             {/* Glow ring */}
@@ -59,13 +60,15 @@ const AboutSection = () => {
           </h2>
 
           <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
-            I’m <span className="text-color-accent font-semibold">P.I.O</span><span> official</span> —
-            a producer obsessed with creating sounds that move people. Each beat
-            tells a story — raw, emotional, and unforgettable.
+            I’m <span className="text-color-accent font-semibold">P.I.O</span>
+            <span> official</span> — a producer obsessed with creating sounds
+            that move people. Each beat tells a story — raw, emotional, and
+            unforgettable.
           </p>
 
           <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-8">
-            My craft blends <span className="text-color-highlight">AfroTrap</span>,{" "}
+            My craft blends{" "}
+            <span className="text-color-highlight">AfroTrap</span>,{" "}
             <span className="text-color-highlight">Drill</span>, and soulful
             energy — mixing heart with rhythm to build timeless soundscapes that
             inspire every listener.
