@@ -11,7 +11,7 @@ const Beats = () => {
       {/* Header */}
       <div className="text-left mb-10 w-full">
         <h2 className="text-4xl font-bold mb-2 text-white">
-          Purchase from my catalogue!
+          Invest in your artistry
         </h2>
         <p className="text-gray-400 text-sm sm:w-[70%]">
           Invest in your sound now. Own your vibe. Buy that beat — and let the
