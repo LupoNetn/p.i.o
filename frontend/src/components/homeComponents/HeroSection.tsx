@@ -1,6 +1,7 @@
 import { Button } from "../ui/button";
 import { motion } from "framer-motion";
 import { InstagramIcon, FacebookIcon, TwitterIcon } from "lucide-react";
+import { Link } from "react-router";
 
 const socialLinks = [
   { id: 1, icon: <FacebookIcon size={22} /> },
@@ -55,7 +56,8 @@ const HeroSection = () => {
         >
           Book Session
         </Button>
-         <Button
+        <Link to='/purchase-a-beat'>
+          <Button
           variant="outline"
           className="mt-2 px-6 py-3 text-lg font-audio 
           bg-color-accent text-color-text-primary 
@@ -64,6 +66,7 @@ const HeroSection = () => {
         >
           Purchase a Beat
         </Button>
+        </Link>
        </div>
       </motion.div>
 
