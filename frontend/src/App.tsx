@@ -3,6 +3,7 @@ import AppLayout from "./components/AppLayout";
 import HomePage from "./pages/HomePage";
 import BookingPage from "./pages/BookingPage";
 import ProfilePage from "./pages/ProfilePage";
+import Beats from "./pages/Beats";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <ProfilePage />,
+      },
+      {
+        path: '/purchase-a-beat',
+        element: <Beats />
       },
     ],
   },

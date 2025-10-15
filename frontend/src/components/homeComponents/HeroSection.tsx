@@ -45,7 +45,8 @@ const HeroSection = () => {
         </p>
 
         {/* CTA */}
-        <Button
+       <div className="flex flex-col sm:flex-row gap-2">
+         <Button
           variant="outline"
           className="mt-2 px-6 py-3 text-lg font-audio 
           bg-color-accent text-color-text-primary 
@@ -54,6 +55,16 @@ const HeroSection = () => {
         >
           Book Session
         </Button>
+         <Button
+          variant="outline"
+          className="mt-2 px-6 py-3 text-lg font-audio 
+          bg-color-accent text-color-text-primary 
+          hover:bg-color-highlight hover:text-white 
+          transition-all duration-300 shadow-[0_0_25px_rgba(255,255,255,0.25)] rounded-xl"
+        >
+          Purchase a Beat
+        </Button>
+       </div>
       </motion.div>
 
       {/* Socials */}
