@@ -1,8 +1,9 @@
 import axios from "axios";
 
 //"https://pioo.onrender.com/api"
+//"http://localhost:8080/api"
 const api = axios.create({
-  baseURL: "http://localhost:8080/api",
+  baseURL: "https://pioo.onrender.com/api",
   withCredentials: true, // always send cookies
 });
 
