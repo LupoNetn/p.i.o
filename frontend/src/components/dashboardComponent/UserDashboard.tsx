@@ -203,8 +203,8 @@ const UserDashboard = () => {
           timeInput,
           type: typeof timeInput,
         });
-        return "Date not set";
-      }
+      return "Date not set";
+    }
 
       // Convert timeInput to string if it's not already
       let timeStr = String(timeInput).trim();
@@ -221,16 +221,16 @@ const UserDashboard = () => {
       }
 
       // Ensure dateInput is turned into a valid Date object
-      const parsedDate = new Date(dateInput);
-      if (isNaN(parsedDate.getTime())) {
-        console.warn("Invalid date format:", dateInput);
-        return "Date not set";
-      }
+    const parsedDate = new Date(dateInput);
+    if (isNaN(parsedDate.getTime())) {
+      console.warn("Invalid date format:", dateInput);
+      return "Date not set";
+    }
 
       // Extract date parts (year, month, day)
-      const year = parsedDate.getFullYear();
-      const month = parsedDate.getMonth(); // 0-based index
-      const day = parsedDate.getDate();
+    const year = parsedDate.getFullYear();
+    const month = parsedDate.getMonth(); // 0-based index
+    const day = parsedDate.getDate();
 
       // Extract hours & minutes from time string "HH:MM" or "HH:MM:SS"
       const timeParts = timeStr.split(":");
@@ -256,18 +256,18 @@ const UserDashboard = () => {
           timeStr,
           timeInput,
         });
-        return "Date not set";
-      }
-
-      // Build a correct LOCAL datetime (no timezone conversion)
-      const finalDate = new Date(year, month, day, hours, minutes, 0);
-
-      return format(finalDate, "EEEE, MMM d, yyyy");
-    } catch (err) {
-      console.error("Error formatting date:", err, { dateInput, timeInput });
       return "Date not set";
     }
-  };
+
+      // Build a correct LOCAL datetime (no timezone conversion)
+    const finalDate = new Date(year, month, day, hours, minutes, 0);
+
+      return format(finalDate, "EEEE, MMM d, yyyy");
+  } catch (err) {
+      console.error("Error formatting date:", err, { dateInput, timeInput });
+    return "Date not set";
+  }
+};
 
   if (loading) {
     return (
@@ -406,8 +406,8 @@ const UserDashboard = () => {
                     Studio Session
                   </h4>
                   <p className="text-gray-400 text-xs sm:text-sm mb-1 break-words">
-                    {formatBookingDateTime(booking.date, booking.startTime)}
-                  </p>
+  {formatBookingDateTime(booking.date, booking.startTime)}
+</p>
                   <p className="text-gray-300 text-xs sm:text-sm font-medium">
                     {formatTime(booking.startTime)} -{" "}
                     {formatTime(booking.endTime)}
@@ -418,10 +418,10 @@ const UserDashboard = () => {
                     booking.status?.toLowerCase() === "pending"
                       ? "bg-yellow-500/20 text-yellow-400"
                       : booking.status?.toLowerCase() === "confirmed"
-                        ? "bg-green-500/20 text-green-400"
-                        : booking.status?.toLowerCase() === "cancelled"
-                          ? "bg-red-500/20 text-red-400"
-                          : "bg-accent/20 text-accent"
+                      ? "bg-green-500/20 text-green-400"
+                      : booking.status?.toLowerCase() === "cancelled"
+                      ? "bg-red-500/20 text-red-400"
+                      : "bg-accent/20 text-accent"
                   }`}
                 >
                   {booking.status || "Pending"}

@@ -3,7 +3,7 @@ import axios from "axios";
 //"https://pioo.onrender.com/api"
 //"http://localhost:8080/api"
 const api = axios.create({
-  baseURL: "https://p-i-o.onrender.com/api",
+  baseURL: "https://p-i-o.vercel.app/api",
   withCredentials: true, // always send cookies
 });
 

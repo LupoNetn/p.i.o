@@ -78,7 +78,7 @@ export const loginController = async (req, res) => {
   try {
     let { username, password } = req.body;
 
-    // ✅ Validate input
+    // Validate input
     if (!username || !password) {
       return res.status(400).json({
         success: false,
@@ -86,10 +86,10 @@ export const loginController = async (req, res) => {
       });
     }
 
-    // ✅ Normalize username (trim, lowercase if applicable)
+    // Normalize username (trim, lowercase if applicable)
     username = username.trim();
 
-    // ✅ Check if user exists
+    // Check if user exists
     const user = await prisma.user.findUnique({
       where: { username },
     });
@@ -101,7 +101,7 @@ export const loginController = async (req, res) => {
       });
     }
 
-    // ✅ Prevent login if Google user tries with password
+    // Prevent login if Google user tries with password
     if (user.provider === "google") {
       return res.status(400).json({
         success: false,
@@ -109,7 +109,7 @@ export const loginController = async (req, res) => {
       });
     }
 
-    // ✅ Check password
+    // Check password
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
       return res.status(401).json({
@@ -118,7 +118,7 @@ export const loginController = async (req, res) => {
       });
     }
 
-    // ✅ Create JWT
+    // Create JWT
     const accessToken = jwt.sign(
       {
         id: user.id,
